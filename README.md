@@ -4,9 +4,12 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![LaTeX](https://img.shields.io/badge/LaTeX-Template-green.svg)](https://www.latex-project.org/)
-[![GitHub stars](https://img.shields.io/github/stars/adonogwanai/LLM-Resume-Template?style=social)](https://github.com/adonogwanai/LLM-Resume-Template)
+[![GitHub stars](https://img.shields.io/github/stars/adongwanai/LLM-Resume-Template?style=social)](https://github.com/adongwanai/LLM-Resume-Template)
 
 一个专为**大模型算法工程师**打造的 LaTeX 简历模板，适合求职大模型、Agent、RAG、NLP 等 AI 相关岗位。
+
+> **💡 如果这个模板对你有帮助，请先点击右上角的 ⭐️ Star 支持一下！你的 Star 是对我们最大的鼓励！**  
+> **🔥 推荐 Fork 本项目后进行修改，这样你可以保留自己的版本，也方便后续更新！**
 
 ## ✨ 特性
 
@@ -35,11 +38,19 @@ resume-master/
 
 ### 方法一：使用 Overleaf（推荐，无需配置环境）
 
-#### 步骤 1: 下载项目
+#### 步骤 0: Star 和 Fork 项目（重要！）
 
-点击 GitHub 页面右上角的 **Code** → **Download ZIP**，下载整个项目压缩包。
+1. 点击页面右上角的 ⭐️ **Star** 按钮，支持一下项目！
+2. 点击右上角的 **Fork** 按钮，将项目 fork 到你的账号下
+3. 在你 fork 的仓库页面，点击 **Code** → **Download ZIP** 下载项目
 
-#### 步骤 2: 导入 Overleaf
+> 💡 **为什么推荐 Fork？**  
+> - 你可以在自己的仓库中自由修改，不会影响原项目
+> - 方便追踪你的修改历史
+> - 当原项目更新时，你可以轻松同步最新内容
+> - Fork 和 Star 能让更多人发现这个项目！
+
+#### 步骤 1: 导入 Overleaf
 
 1. 访问 [Overleaf](https://www.overleaf.com/) 并登录/注册
 2. 点击左上角 **New Project** → **Upload Project**
@@ -62,14 +73,20 @@ resume-master/
 
 如果你想用 AI 快速批量修改简历内容，推荐使用 Cursor 编辑器。
 
-#### 步骤 1: 克隆项目
+#### 步骤 1: Fork 并克隆项目（推荐）
+
+**强烈推荐先 Fork 项目！**
+
+1. 在 GitHub 上点击 **Star** ⭐️ 和 **Fork** 按钮
+2. 克隆你 fork 的仓库：
 
 ```bash
-git clone https://github.com/adonogwanai/LLM-Resume-Template.git
+# 替换 YOUR_USERNAME 为你的 GitHub 用户名
+git clone https://github.com/YOUR_USERNAME/LLM-Resume-Template.git
 cd LLM-Resume-Template
 ```
 
-或者直接下载 ZIP 并解压。
+> 💡 **为什么要 Fork？** Fork 后可以自由提交你的修改，保留个人版本，同时不影响原项目。
 
 #### 步骤 2: 用 Cursor 打开项目
 
@@ -289,8 +306,8 @@ xelatex resume-zh.tex  # 编译两次以生成正确的目录和引用
 
 ## 📮 联系方式
 
-- GitHub: [@adonogwanai](https://github.com/adonogwanai)
-- 项目地址: [LLM-Resume-Template](https://github.com/adonogwanai/LLM-Resume-Template)
+- GitHub: [@adongwanai](https://github.com/adongwanai)
+- 项目地址: [LLM-Resume-Template](https://github.com/adongwanai/LLM-Resume-Template)
 
 ## 📜 许可证
 
