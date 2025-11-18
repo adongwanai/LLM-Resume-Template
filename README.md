@@ -26,6 +26,7 @@
 
 ## ✨ 特性
 
+- 📸 **支持头像**：提供带头像版本，让简历更加个性化和专业（可选）
 - 📝 **专业内容结构**：涵盖科研经历、实习经历、项目经历等完整板块
 - 🎯 **大模型方向优化**：针对 LLM、Agent、RAG、模型压缩等热门方向设计
 - 🔧 **易于修改**：提供完整的占位符模板，方便快速替换个人信息
@@ -35,17 +36,22 @@
 ## 📁 文件说明
 
 ```
-resume-master/
-├── resume-zh.tex          # 中文简历（完整示例）
-├── resume-model.tex       # 简历模板（含占位符，推荐使用）
+LLM-Resume-Template/
+├── resume-zh.tex          # 中文简历（完整示例，无头像）
+├── resume-photo.tex       # 带头像简历（推荐使用）⭐️
+├── resume-model.tex       # 简历模板（含占位符）
 ├── resume-en.tex          # 英文简历模板
-├── resume.cls             # 简历样式文件
+├── resume.cls             # 标准简历样式文件
+├── resume-photo.cls       # 带头像支持的样式文件 ⭐️
+├── adongwanai.jpg         # 示例头像图片
 ├── Makefile               # 编译脚本
 ├── fontawesome5/          # 图标字体文件
 └── README.md              # 本文件
 ```
 
-**推荐使用 `resume-model.tex`**：这是一个带有详细占位符和示例的模板文件，方便你快速替换成自己的信息。
+**推荐使用 `resume-photo.tex`**：这是带头像版本的简历模板，更加现代美观，适合需要展示个人形象的场合。
+
+**可选使用 `resume-zh.tex` 或 `resume-model.tex`**：标准版简历（无头像），适合更正式的学术或企业场合。
 
 ## 🚀 快速开始
 
@@ -73,12 +79,25 @@ resume-master/
 #### 步骤 3: 设置主文件
 
 1. 在 Overleaf 项目中，点击左上角的 **Menu** 按钮
-2. 在 **Main document** 下拉菜单中选择 `resume-model.tex`（或 `resume-zh.tex`）
-3. 点击 **Recompile** 即可预览 PDF
+2. 在 **Main document** 下拉菜单中选择：
+   - **带头像版**：选择 `resume-photo.tex`（推荐）
+   - **无头像版**：选择 `resume-zh.tex` 或 `resume-model.tex`
+3. 确保编译器设置为 **XeLaTeX**
+4. 点击 **Recompile** 即可预览 PDF
 
-#### 步骤 4: 开始编辑
+#### 步骤 4: 替换头像（如使用带头像版）
 
-直接在 Overleaf 编辑器中修改 `resume-model.tex` 文件，保存后会自动重新编译并更新 PDF 预览。
+1. 准备一张正方形或圆形的照片（推荐尺寸 500×500 像素以上）
+2. 在 Overleaf 左侧文件列表中，点击上传图标上传你的照片
+3. 打开 `resume-photo.tex`，修改第 17 行：
+   ```latex
+   \ResumePhoto{你的照片文件名.jpg}
+   ```
+4. 如果不想使用头像，直接删除或注释掉这一行即可
+
+#### 步骤 5: 开始编辑
+
+直接在 Overleaf 编辑器中修改对应的 `.tex` 文件，保存后会自动重新编译并更新 PDF 预览。
 
 ---
 
@@ -105,7 +124,7 @@ cd LLM-Resume-Template
 
 1. 下载并安装 [Cursor](https://cursor.sh/)
 2. 用 Cursor 打开项目文件夹
-3. 打开 `resume-model.tex` 文件
+3. 打开 `resume-photo.tex`（带头像版）或 `resume-model.tex`（无头像版）文件
 
 #### 步骤 3: 使用 AI 提示词快速修改
 
@@ -124,19 +143,37 @@ cd LLM-Resume-Template
 如果你已安装 TeX Live 或 MacTeX，可以在本地编译：
 
 ```bash
-# 编译中文简历
-make zh
+# 编译带头像版简历（推荐）
+xelatex resume-photo.tex
+xelatex resume-photo.tex  # 编译两次以生成正确的目录和引用
 
-# 或直接使用 xelatex
+# 编译无头像版简历
+make zh
+# 或
 xelatex resume-zh.tex
-xelatex resume-zh.tex  # 编译两次以生成正确的目录和引用
+xelatex resume-zh.tex
 ```
 
 ## 📝 使用指南
 
 ### 1. 修改个人信息
 
-在 `resume-model.tex` 中找到以下部分并修改：
+#### 带头像版（`resume-photo.tex`）
+
+```latex
+\ResumeName{阿东玩AI}  % 修改为你的姓名
+\ResumePhoto{adongwanai.jpg}  % 修改为你的头像文件名，或删除这行不使用头像
+
+\begin{document}
+
+\ResumeContacts{
+  1XX-XXXX-XXXX,%
+  \ResumeUrl{mailto:adong@tsinghua.edu.cn}{adong@tsinghua.edu.cn},%
+  \textnormal{清华大学 | 计算机科学与技术 · 硕士 | 20XX-XX}%
+}
+```
+
+#### 无头像版（`resume-zh.tex` 或 `resume-model.tex`）
 
 ```latex
 \name{玩AI}{阿东}  % 修改为你的姓名（姓 名）
