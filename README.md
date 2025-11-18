@@ -14,9 +14,15 @@
 ## 📸 效果预览
 
 <div align="center">
-  <img src="https://youke1.picui.cn/s1/2025/11/06/690c9bdf851c9.png" alt="简历效果展示" width="800"/>
+  <img src="https://youke1.picui.cn/s1/2025/11/06/690c9bdf851c9.png" alt="无头像简历效果展示" width="800"/>
   <p><i>简历模板效果展示</i></p>
 </div>
+
+<div align="center">
+  <img src="https://youke1.picui.cn/s1/2025/11/18/691c25dea839e.png" alt="头像简历效果展示" width="800"/>
+  <p><i>简历模板有头像效果展示</i></p>
+</div>
+
 
 ## ✨ 特性
 
