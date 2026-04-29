@@ -21,16 +21,19 @@
 \begin{document}
 
 \ResumeContacts{
-  \textnormal{河海大学 | 计算机科学与技术 · 硕士 | 2024.09-2027.06}, \\[-0.2em]%
-  13036776857,%
-  \ResumeUrl{mailto:penghuihong24@mails.ucas.ac.cn}{penghuihong24@mails.ucas.ac.cn}%
+  \textnormal{\textbf{河海大学 | 计算机科学与技术 · 硕士 | 男 | 中共党员 | 24岁}}, \\[-0.2em]%
+  \textbf{13036776857},%
+  \ResumeUrl{mailto:penghuihong24@mails.ucas.ac.cn}{\textbf{penghuihong24@mails.ucas.ac.cn}}%
 }
 
 \ResumeTitle
 
 
-% ====================== 简介 ======================
-\noindent 中国科学院大学计算技术研究所、河海大学计算机科学与技术专业联培硕士在读，预计 2027 年 6 月毕业。求职意向大模型应用开发
+% ====================== 综合评价 ======================
+\noindent \textbf{综合评价:}具备大模型应用开发全栈能力，系统掌握 RAG 全链路与 Agentic 工作流设计，有从零构建生产级 RAG 系统的完整项目经验；
+具备模型微调与训练经验，掌握 LoRA/QLoRA 监督微调流程；
+工程能力扎实，熟悉 FastAPI 等后端技术栈，有前后端分离项目的完整开发与部署经验；
+学习能力强，能快速上手新技术方向，研究生阶段在较短时间内系统掌握 LLM 应用开发技术栈并落地完整项目。
 
 % ====================== 教育 ======================
 \section{教育背景}
@@ -49,11 +52,11 @@
 % ====================== 技能 ======================
 \section{专业技能}
 \begin{itemize}
-  \item 熟悉 Python 及 PyTorch 框架，掌握 Hugging Face Transformers 等大模型开发工具。
+  \item 熟悉 Python、C++ 及 PyTorch 框架，掌握 Hugging Face Transformers 等大模型开发工具。
   \item 深入理解大模型微调技术，如 P-tuning、LoRA 等，并有丰富的提示工程实践经验。
-  \item 熟悉 LLaMA 等主流模型架构，以及 RLHF、DPO 等偏好对齐方法。
-  \item 熟悉 DeepSpeed 等分布式训练框架，具备大模型训练与部署性能优化能力。
-  \item 了解 RAG、Agent 等 LLM 应用技术，对多模态大模型有研究与实践经验。
+  \item 熟悉 RAG、Agent 等 LLM 应用技术，对多模态大模型有研究与实践经验。
+  \item 了解 LLaMA 等主流模型架构，以及 RLHF、DPO 等偏好对齐方法。
+  \item 了解 DeepSpeed 等分布式训练框架，具备大模型训练与部署性能优化能力。
 \end{itemize}
 
 % ====================== 实习 ======================
@@ -61,30 +64,29 @@
 
 \ResumeItem{中科南京信息高铁研究院｜无线通信技术研究中心}
 []
-[2025.08—2026.04]
+[2025.09—2026.01]
 
+\vspace{0.3em}
+\noindent \textbf{企业创新方向预测系统} | LoRA, RAG
 \begin{itemize}
-  \item \textbf{负责部分}: 大模型微调，提示词工程，RAG 系统设计与实现
-  \item \textbf{实习内容}: 企业创新方向预测——基于大模型的专利文本分析与趋势预测系统
-  \item 设计并实现了一套面向专利文本的RAG系统，构建专利知识库（含摘要、权利要求、引用关系等），实现高效检索与生成增强，支撑企业创新趋势分析。
-针对专利文本的专业术语与长文本结构，对基座大模型进行LoRA微调，提升模型在专利分类、技术关键词抽取、创新性判断等任务上的准确性。
-设计多级提示词策略（如零样本/少样本、思维链），引导模型从专利中提取技术演进路径、识别空白领域，并生成企业创新方向预测报告。
-最终系统在测试集上达到84%的预测准确率。
+  \item 构建端到端的 RAG + LLM 微调系统，融合企业信息与学术数据，自动预测企业未来研发方向；
+  \item 开发多源数据流水线（arXiv 爬虫 + 向量检索匹配 + TF-IDF 融合），调用 Qwen3-235B API 生成偏好数据集；
+  \item 基于 Qwen2.5-7B + LoRA 微调，引入 PGD 动态对抗训练（Gamma 自适应扰动），使用 PPL / BLEU / ROUGE / BERTScore / 语义相似度五维评估，微调后模型语义相似度提升 \textbf{12\%}。
 \end{itemize}
 
 
 \section{项目经历}
 
 \ResumeItem{学术论文智能问答系统Scholar-RAG}
-[\textnormal{LangGraph $\cdot$ Milvus $\cdot$ FastAPI $\cdot$ React}]
-[2025.09—2025.12]
-
+[\textnormal{ LangGraph $\cdot$ Milvus $\cdot$ FastAPI $\cdot$ React}]
+[2026.02—2026.04]
+\vspace{0.3em}
+\noindent \textbf{项目背景}: 面向学术科研场景的 Agentic RAG 系统，支持 PDF 结构化解析入库、多路并行检索与自反思问答，具备多轮对话记忆、多模态图表理解及完整评估体系。
 \begin{itemize}
-  \item \textbf{项目背景}: 面向学术科研场景的 Agentic RAG 系统，支持 PDF 结构化解析入库、多路并行检索与自反思问答，具备多轮对话记忆、多模态图表理解及完整评估体系。
-  \item \textbf{构建基于 LangGraph 的多 Agent 问答架构}: 主图采用 \texttt{classify $\rightarrow$ analyze $\rightarrow$ [sub\_agents $\times$ N] $\rightarrow$ synthesize} 流程；针对复杂多跳问题通过 Send 机制并行派发子查询，每个子 Agent 内执行 \texttt{retrieve $\rightarrow$ generate $\rightarrow$ reflect $\rightarrow$ retry} 的 ReAct 循环，最终聚合子答案并重映射引用编号；对话历史超过 6 轮时触发 LLM 摘要压缩，状态通过 AsyncPostgresSaver 持久化至 PostgreSQL 支持跨会话恢复。
-  \item \textbf{设计混合检索与两阶段重排序管道}: 在 Milvus 中同时构建 Dense（bge-small-en）与 BM25 稀疏索引，通过 RRF 融合双路召回；引入 CrossEncoder（bge-reranker-v2-m3）对 Top-40 候选进行精排取 Top-5，相比纯向量召回 MRR 从 0.61 提升至 0.79；设计父子双集合分块策略（Child chunk 500字符/50重叠），检索命中 Child 后回溯 Parent 获取完整上下文，解决精准性与语义完整性的矛盾。
-  \item \textbf{实现结构化 PDF 解析与多模态图表理解}: 采用 Docling 识别六类节点（段落/表格/图片/公式等），文字量不足时自动触发 OCR 降级；工厂模式节点生成器对表格线性化、对图片拼合 caption；集成 Qwen-VL 实现按需视觉分析，支持主动触发（查询含视觉关键词）与被动触发（reflect 判断答案不足时 fallback）双路径，单次最多处理 2 张图片控制推理成本。
-  \item \textbf{构建双层评估体系并完成工程化部署}: 检索层使用自建测试集计算 Recall@k / MRR / MAP，生成层集成 RAGAS 评估 Faithfulness、AnswerRelevancy、ContextPrecision 四项指标，端到端输出 CSV 报告；后端基于 FastAPI SSE 实现逐 token 流式推送，前端 React 18 + ReadableStream 解析事件流；采用 Docker Compose 四服务编排（FastAPI + Nginx + Milvus + PostgreSQL），Makefile 封装开发命令。
+  \item \textbf{设计多 Agent 问答架构（LangGraph）}：构建 classify→analyze→sub-agents→synthesize 主流程，支持复杂问题拆解与并行子查询；子 Agent 内实现 ReAct（retrieve→generate→reflect→retry）循环提升回答质量；引入对话摘要压缩与 PostgreSQL 持久化，实现长对话与跨会话恢复。
+  \item \textbf{实现混合检索与重排序优化}：基于 Milvus 构建 Dense + BM25 双索引，通过 RRF 融合召回；结合 CrossEncoder 精排（Top-40→Top-5），MRR 从 0.61 提升至 0.79；采用父子分块策略兼顾检索精度与上下文完整性。
+  \item \textbf{支持结构化解析与多模态理解}：基于 Docling 实现 PDF 多类型节点解析（文本/表格/图片等），结合 OCR 兜底；引入 Qwen-VL 实现按需视觉推理（主动触发 + 反思回退），提升复杂文档问答能力。
+  \item \textbf{构建评估体系与工程化部署}：检索层评估 Recall@k/MRR/MAP，生成层基于 RAGAS 评估多维指标；后端 FastAPI + SSE 流式输出，前端 React 实现实时展示；基于 Docker Compose 完成多服务部署。
 \end{itemize}
 
 % ====================== 工作 ====================== 
