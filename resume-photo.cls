@@ -20,8 +20,10 @@
 \RequirePackage{xeCJKfntef}
 % Provide colors.
 \RequirePackage{xcolor}
+\definecolor{ResumeSectionBlue}{HTML}{003865} % 深蓝色
 % For including images (photo).
 \RequirePackage{graphicx}
+\RequirePackage{wrapfig}
 
 \ExplSyntaxOn
 
@@ -55,7 +57,7 @@
     format = \noindent \zihao{4} \heiti \__resume_section_title_format:n,
     indent = -1em,
     afterskip = 0.5em,
-    beforeskip = 0.2em,
+    beforeskip = 0.5em,
   },
 }
 
@@ -85,7 +87,7 @@
 
 % Predefined commands.
 \cs_new:Npn \__resume_section_title_format:n #1
-{#1 \vspace{3pt} \hrule}
+{\color{ResumeSectionBlue} #1 \vspace{3pt} \hrule}
 
 
 % Add a contant info.
@@ -126,7 +128,7 @@
   {
     % No photo version
     \begin{center}
-      \zihao{-2} \heiti \g__resume_title_name_tl
+      \zihao{-2} \heiti \color{ResumeSectionBlue} \g__resume_title_name_tl
     \end{center}
     \vspace{-1.4em}
     \begin{center}
@@ -135,19 +137,17 @@
   }
   {
     % With photo version
+    \begin{wrapfigure}{r}{2.5cm}
+      \vspace{-2.5em}
+      \includegraphics[width=2.5cm]{\g__resume_photo_tl}
+      \vspace{-2.5em}
+    \end{wrapfigure}
     \noindent
-    \begin{minipage}[c]{0.73\textwidth}
-      {\zihao{-2} \heiti \g__resume_title_name_tl}
-      \vspace{0.3em}
-      \par
-      \seq_use:Nnnn \g__resume_contacts_seq {~|~} {~|~} {~|~}
-    \end{minipage}
-    \hfill
-    \raisebox{-0.5\height}{%
-      \includegraphics[width=2.5cm]{\g__resume_photo_tl}%
-    }
+    {\zihao{-2} \heiti \color{ResumeSectionBlue} \g__resume_title_name_tl}
+    \vspace{0.3em}
+    \par    \noindent    {\seq_use:Nnnn \g__resume_contacts_seq {~|~} {~|~} {~|~}}
     \par
-    \vspace{0.5em}
+    \vspace{0.8em}
   }
 }
 

@@ -9,7 +9,8 @@
 
 % 紧凑排版
 \usepackage{enumitem}
-\setlist[itemize]{itemsep=2pt, topsep=2pt}
+\usepackage{fontawesome5}
+\setlist[itemize]{label=\faAngleRight, itemsep=2pt, topsep=2pt}
 \newcommand{\ExpItem}[3]{%
   \noindent\textbf{#1｜#2} \hfill {\footnotesize #3}\\[-2pt]
 }
@@ -20,9 +21,9 @@
 \begin{document}
 
 \ResumeContacts{
+  \textnormal{河海大学 | 计算机科学与技术 · 硕士 | 2024.09-2027.06}, \\[-0.2em]%
   13036776857,%
-  \ResumeUrl{mailto:penghuihong24@mails.ucas.ac.cn}{penghuihong24@mails.ucas.ac.cn},%
-  \textnormal{河海大学 | 计算机科学与技术 · 硕士 | 2024.09-2027.06}%
+  \ResumeUrl{mailto:penghuihong24@mails.ucas.ac.cn}{penghuihong24@mails.ucas.ac.cn}%
 }
 
 \ResumeTitle
@@ -31,17 +32,18 @@
 % ====================== 简介 ======================
 \noindent 中国科学院大学计算技术研究所、河海大学计算机科学与技术专业联培硕士在读，预计 2027 年 6 月毕业。求职意向大模型应用开发
 
-
 % ====================== 教育 ======================
 \section{教育背景}
 \ResumeItem
 {河海大学}
-[\textnormal{计算机与软件学院 | 计算机科学与技术 | 硕士 | 专业排名前 20\%}]
+[\textnormal{ 211 | 计算机科学与技术 | 硕士 | 专业排名前 10\%}]
 [2024.09—2027.06(预计)]
 
+\vspace{0.3em}
+
 \ResumeItem
-{中国矿业大学大学}
-[\textnormal{计算机科学与技术学院 | 计算机科学与技术 | 学士}]
+{中国矿业大学}
+[\textnormal{ 211 | 计算机科学与技术 | 学士 | 专业排名前 40\%}]
 [2019.09—2023.06]
 
 % ====================== 技能 ======================
@@ -58,6 +60,7 @@
 \section{实习经历}
 
 \ResumeItem{中科南京信息高铁研究院｜无线通信技术研究中心}
+[]
 [2025.08—2026.04]
 
 \begin{itemize}
@@ -72,12 +75,16 @@
 
 \section{项目经历}
 
-\ResumeItem{基于自我纠错机制的智能 RAG 检索系统}
+\ResumeItem{学术论文智能问答系统Scholar-RAG}
+[\textnormal{LangGraph $\cdot$ Milvus $\cdot$ FastAPI $\cdot$ React}]
 [2025.09—2025.12]
 
 \begin{itemize}
-  \item \textbf{项目背景}: 项目是一款基于图 RAG技术的智能美食推荐与烹饪助手。基于all-in-rag 教程开发，深度整合了开源菜谱数据集（如 HowToCook），旨在通过图数据库与向量检索的双重 AI 推荐技术，结合大模型自然语言交互（ChatGPT 风格），解决用户日常就餐选择痛点，并提供个性化的美食推荐与详尽的分步烹饪指导。
-  \item \textbf{技术栈}: Flask Web、Neo4j , Milvus, Graph RAG, 混合检索（BM25 + 向量检索）
+  \item \textbf{项目背景}: 面向学术科研场景的 Agentic RAG 系统，支持 PDF 结构化解析入库、多路并行检索与自反思问答，具备多轮对话记忆、多模态图表理解及完整评估体系。
+  \item \textbf{构建基于 LangGraph 的多 Agent 问答架构}: 主图采用 \texttt{classify $\rightarrow$ analyze $\rightarrow$ [sub\_agents $\times$ N] $\rightarrow$ synthesize} 流程；针对复杂多跳问题通过 Send 机制并行派发子查询，每个子 Agent 内执行 \texttt{retrieve $\rightarrow$ generate $\rightarrow$ reflect $\rightarrow$ retry} 的 ReAct 循环，最终聚合子答案并重映射引用编号；对话历史超过 6 轮时触发 LLM 摘要压缩，状态通过 AsyncPostgresSaver 持久化至 PostgreSQL 支持跨会话恢复。
+  \item \textbf{设计混合检索与两阶段重排序管道}: 在 Milvus 中同时构建 Dense（bge-small-en）与 BM25 稀疏索引，通过 RRF 融合双路召回；引入 CrossEncoder（bge-reranker-v2-m3）对 Top-40 候选进行精排取 Top-5，相比纯向量召回 MRR 从 0.61 提升至 0.79；设计父子双集合分块策略（Child chunk 500字符/50重叠），检索命中 Child 后回溯 Parent 获取完整上下文，解决精准性与语义完整性的矛盾。
+  \item \textbf{实现结构化 PDF 解析与多模态图表理解}: 采用 Docling 识别六类节点（段落/表格/图片/公式等），文字量不足时自动触发 OCR 降级；工厂模式节点生成器对表格线性化、对图片拼合 caption；集成 Qwen-VL 实现按需视觉分析，支持主动触发（查询含视觉关键词）与被动触发（reflect 判断答案不足时 fallback）双路径，单次最多处理 2 张图片控制推理成本。
+  \item \textbf{构建双层评估体系并完成工程化部署}: 检索层使用自建测试集计算 Recall@k / MRR / MAP，生成层集成 RAGAS 评估 Faithfulness、AnswerRelevancy、ContextPrecision 四项指标，端到端输出 CSV 报告；后端基于 FastAPI SSE 实现逐 token 流式推送，前端 React 18 + ReadableStream 解析事件流；采用 Docker Compose 四服务编排（FastAPI + Nginx + Milvus + PostgreSQL），Makefile 封装开发命令。
 \end{itemize}
 
 % ====================== 工作 ====================== 
