@@ -30,10 +30,8 @@
 
 
 % ====================== 综合评价 ======================
-\noindent \textbf{综合评价:}具备大模型应用开发能力，系统掌握 RAG 与 Agentic 工作流设计，有构建 RAG 系统的完整项目经验；
-具备模型微调与训练经验，掌握 LoRA 监督微调流程；
-工程能力扎实，熟悉常用后端技术栈与git工具，有前后端分离项目的完整开发与部署经验；
-学习能力强，能快速上手新技术方向。
+\noindent \textbf{综合评价:}具备扎实的计算机专业基础和大模型应用开发能力，系统掌握 Agentic AI 知识；
+具备模型微调与部署经验，工程能力扎实；熟练使用各类AI工具，学习能力强，能快速上手新技术方向。
 
 % ====================== 教育 ======================
 \section{教育背景}
@@ -48,18 +46,21 @@
 {中国矿业大学}
 [\textnormal{ 211 | 计算机科学与技术 | 学士 | 专业排名前 40\%}]
 [2019.09—2023.06]
+\begin{itemize}
+  \item \textbf{获奖情况:} 河海大学2025-2026 年度一等奖学金、2024-2025 年度二等奖学金，外语水平: CET-6
+\end{itemize}
 
 % ====================== 技能 ======================
-\section{专业技能}
-\begin{itemize}
-  \item 熟悉 Python 及 PyTorch 框架，掌握Transformers、PEFT 等大模型开发工具
-  \item 熟悉 RAG、Agent 工作流（LangGraph/ReAct）、Function Calling、MCP 协议等相关技术
-  \item 熟悉 大模型微调技术（LoRA / P-tuning），有 SFT 全流程实践经验；
-  熟悉主流大模型的应用范式Context Engineering、Prompt Engineering、工具调用等；了解 RLHF、DPO 等偏好对齐方法
-  \item 熟悉 FastAPI、Docker Compose 等后端开发与容器化部署工具；熟悉 Redis、Elasticsearch、MySQL 等中间件与数据库；熟练使用git进行分支管理；
-  \item 了解主流模型架构（LLaMA / Qwen 系列）及分布式训练框架（DeepSpeed）基本原理；
-  了解模型量化（INT4/INT8）与推理加速（vLLM / llama.cpp）基础知识
-\end{itemize}
+% \section{专业技能}
+% \begin{itemize}
+%   \item 熟悉 Python 及 PyTorch 框架，掌握Transformers、PEFT 等大模型开发工具
+%   \item 熟悉 RAG、Agent 工作流（LangGraph/ReAct）、Function Calling、MCP 协议等相关技术
+%   \item 熟悉 大模型微调技术（LoRA / P-tuning），有 SFT 全流程实践经验；
+%   熟悉主流大模型的应用范式Context Engineering、Prompt Engineering、工具调用等；了解 RLHF、DPO 等偏好对齐方法
+%   \item 熟悉 FastAPI、Docker Compose 等后端开发与容器化部署工具；熟悉 Redis、Elasticsearch、MySQL 等中间件与数据库；熟练使用git进行分支管理；
+%   \item 了解主流模型架构（LLaMA / Qwen 系列）及分布式训练框架（DeepSpeed）基本原理；
+%   了解模型量化（INT4/INT8）与推理加速（vLLM / llama.cpp）基础知识
+% \end{itemize}
 
 % ====================== 项目 ======================
 \section{项目经历}
@@ -71,7 +72,7 @@
 \noindent \textbf{项目背景}: 面向 OnCall/SRE 场景的多智能体运维诊断平台，采用 Skill-first 架构，通过 Skill Router 自动匹配故障类型并加载诊断策略，结合 RAG 与 MCP 工具采集，完成从告警接入到结构化诊断报告输出的全链路智能诊断。
 \begin{itemize}
   \item 针对全量 SOP 与工具列表注入 Planner 导致 prompt 过长、工具误选的问题，采用 Skill-first 多智能体架构，由 Skill Router 语义匹配故障类型后加载对应 Playbook 及工具白名单进行上下文收敛，使 Planner prompt tokens 下降 93.5\%，全链路 total tokens 下降 66.5\%。
-  \item 针对运维知识库检索准确率不足的问题，采用 DashScope Embedding + Milvus 构建 RAG 知识库（954 文档 / 4080 chunks），通过 Query Rewrite 与 Hybrid Search 调优检索策略，将 R@1 从 83.3\% 提升至 91.7\%，MRR 从 0.882 提升至 0.938。
+  \item 针对运维知识库检索准确率不足的问题，采用 DashScope Embedding + Milvus 构建 RAG 知识库，通过 Query Rewrite 与 Hybrid Search 调优检索策略，将 R@1 从 83.3\% 提升至 91.7\%，MRR 从 0.882 提升至 0.938。
   \item 针对多工具串行执行导致诊断延迟高的问题，采用只读工具并行调度策略对互不依赖的 MCP 工具并发执行，使工具执行耗时从 1.06s 降至 0.22s，加速 4.88x。
   \item 针对 Plan-Execute-Replan 循环中重复步骤与 Skill 反复切换的问题，设计 AgentHarness 控制面，集中管理 Replanner 前置保护（最大步数 / 重复检测 / 快进）及 Reroute 配额机制，提升诊断链路稳定性与可控性。
   \item 针对诊断过程不透明的问题，采用 SSE 流式通信架构，前端实时展示 Skill 选择、工具调用过程、token 用量及 Markdown 诊断报告，并支持 token/时间预算的 warning 告警，提升诊断过程可观测性。
@@ -86,9 +87,9 @@
 \noindent \textbf{项目背景}: 面向学术科研场景的 Agentic RAG 系统，支持 PDF 结构化解析入库、多路并行检索与自反思问答，具备多轮对话记忆与多模态图表理解能力。
 \begin{itemize}
   \item 针对复杂学术问题需多步推理的问题，采用 LangGraph 构建 classify→analyze→sub-agents→synthesize 多 Agent 架构，支持问题拆解与并行子查询，子 Agent 内实现 ReAct 循环提升回答质量。
-  \item 针对单一向量检索召回不准的问题，采用 Dense + BM25 双索引 + RRF 融合召回，结合 CrossEncoder 精排（Top-40→Top-5），将 MRR 从 0.61 提升至 0.79；采用父子分块策略兼顾检索精度与上下文完整性。
+  \item 针对单一向量检索召回不准的问题，采用 Dense + BM25 双索引和父子分块策略， RRF 融合召回，结合 CrossEncoder 精排，将 MRR 从 0.61 提升至 0.79。
   \item 针对学术 PDF 含图表等多模态内容的问题，采用 Docling 实现多类型节点解析并结合 OCR 兜底，引入 Qwen-VL 按需视觉推理，提升复杂文档问答能力。
-  \item 针对系统质量难以量化评估的问题，引入 RAGAS 评估框架；采用 FastAPI + SSE 流式输出与语义缓存降低重复查询成本，基于 Docker Compose 完成多服务一键部署。
+  \item 针对系统难以量化评估与API重复调用成本高的问题，引入 RAGAS 评估框架量化系统性能，采用 FastAPI + SSE 流式输出与语义缓存降低重复查询成本，基于 Docker Compose 完成多服务一键部署。
 \end{itemize}
 
 % ====================== 实习 ======================
@@ -105,15 +106,15 @@
 \noindent \textbf{项目背景}: 针对企业研发方向预测缺乏智能化手段的问题，构建端到端 RAG + LLM 微调系统，融合企业历史数据与学术成果自动预测研发方向。
 \begin{itemize}
   \item 针对高质量 SFT 数据不足的问题，开发多源数据流水线（8 万条数据清洗 + arXiv 爬虫三级回退 + 向量检索与 TF-IDF 融合匹配），调用 Qwen3-235B API 以检索结果为上下文合成训练数据集。
-  \item 针对小模型微调效果不佳的问题，基于 Qwen2.5-0.5B + LoRA 引入 PGD 动态对抗训练与 Gamma 自适应扰动机制，微调后 BLEU-4 提升 161\%，ROUGE-1 提升 29\%，ROUGE-L 提升 42\%。
-  \item 系统验证：以大模型提取行业发展报告关键创新点构造选择题，验证预测准确率达 86\%
+  \item 针对微调效果不佳的问题，基于 LoRA 引入 PGD 动态对抗训练与 Gamma 自适应扰动机制，微调后 BLEU-4 提升 61\%，ROUGE-1 提升 29\%，ROUGE-L 提升 42\%。
+  \item \textbf{系统验证}: 以大模型提取行业发展报告关键创新点构造选择题，验证预测准确率达 86\%
 \end{itemize}
 
 
 % ====================== 荣誉 ======================
-\section{个人荣誉}
-\begin{itemize}
-  \item 河海大学 2025-2026 年度一等奖学金、2024-2025 年度二等奖学金、外语水平: CET-6
-\end{itemize}
+% \section{个人荣誉}
+% \begin{itemize}
+%   \item 河海大学 2025-2026 年度一等奖学金、2024-2025 年度二等奖学金、外语水平: CET-6
+% \end{itemize}
 
 \end{document}
