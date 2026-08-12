@@ -29,6 +29,7 @@
 
 - 📸 **支持头像**：提供带头像版本，让简历更加个性化和专业（可选）
 - 📝 **专业内容结构**：涵盖科研经历、实习经历、项目经历等完整板块
+- 🧭 **高信号内容指南**：提供 Agent / LLM 岗位的证据组织、指标口径与自检方法
 - 🎯 **大模型方向优化**：针对 LLM、Agent、RAG、模型压缩等热门方向设计
 - 🔧 **易于修改**：提供完整的占位符模板，方便快速替换个人信息
 - 🎨 **排版精美**：基于优秀的 LaTeX 简历模板，支持中英文
@@ -38,6 +39,7 @@
 
 ```
 LLM-Resume-Template/
+├── resume-agent.tex       # Agent / LLM 高信号两页 A4 示例（匿名、无头像）⭐️
 ├── resume-zh.tex          # 中文简历（完整示例，无头像）
 ├── resume-photo.tex       # 带头像简历（推荐使用）⭐️
 ├── resume-model.tex       # 简历模板（含占位符）
@@ -47,8 +49,11 @@ LLM-Resume-Template/
 ├── adongwanai.jpg         # 示例头像图片
 ├── Makefile               # 编译脚本
 ├── fontawesome5/          # 图标字体文件
+├── CONTENT-GUIDE.md       # 内容写法、高定价信号与升级清单
 └── README.md              # 本文件
 ```
+
+**Agent / LLM 岗位优先使用 `resume-agent.tex`**：它不是个人经历复刻，而是匿名化的内容骨架，展示如何用岗位定位、公开证据、责任边界、关键机制、验证口径和业务结果组织两页 A4 简历。所有 `X/Y` 指标都必须替换为你能解释和复核的真实数据。写作前先阅读 [`CONTENT-GUIDE.md`](CONTENT-GUIDE.md)。
 
 **推荐使用 `resume-photo.tex`**：这是带头像版本的简历模板，更加现代美观，适合需要展示个人形象的场合。
 
@@ -81,6 +86,7 @@ LLM-Resume-Template/
 
 1. 在 Overleaf 项目中，点击左上角的 **Menu** 按钮
 2. 在 **Main document** 下拉菜单中选择：
+   - **Agent / LLM 高信号版**：选择 `resume-agent.tex`
    - **带头像版**：选择 `resume-photo.tex`（推荐）
    - **无头像版**：选择 `resume-zh.tex` 或 `resume-model.tex`
 3. 确保编译器设置为 **XeLaTeX**
@@ -144,6 +150,10 @@ cd LLM-Resume-Template
 如果你已安装 TeX Live 或 MacTeX，可以在本地编译：
 
 ```bash
+# 编译 Agent / LLM 高信号版
+xelatex resume-agent.tex
+xelatex resume-agent.tex
+
 # 编译带头像版简历（推荐）
 xelatex resume-photo.tex
 xelatex resume-photo.tex  # 编译两次以生成正确的目录和引用
@@ -382,4 +392,3 @@ xelatex resume-zh.tex
 **祝你求职顺利，拿到心仪的 Offer！🎉**
 
 如有问题，欢迎提 Issue 或加入讨论！
-

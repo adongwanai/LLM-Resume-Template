@@ -1,0 +1,117 @@
+% !TeX TS-program = xelatex
+\documentclass{resume-photo}
+
+% Agent / LLM high-signal example. Replace every X/Y value with evidence you can defend.
+\usepackage{enumitem}
+\IfFontExistsTF{Noto Serif CJK SC}{
+  \setCJKmainfont{Noto Serif CJK SC}[BoldFont=Noto Serif CJK SC Bold]
+}{
+  \IfFontExistsTF{Songti SC}{
+    \setCJKmainfont{Songti SC}[BoldFont=Songti SC Bold]
+  }{}
+}
+\renewcommand{\heiti}{\bfseries}
+\definecolor{ResumeBlue}{HTML}{185ABD}
+\ExplSyntaxOn
+\cs_set:Npn \__resume_section_title_format:n #1
+  {\textcolor{ResumeBlue}{#1} \vspace{3pt} \color{ResumeBlue}\hrule}
+\ExplSyntaxOff
+\setlist[itemize]{itemsep=1pt,parsep=0pt,topsep=2pt}
+\newcommand{\Signal}[1]{\textbf{\textcolor{ResumeBlue}{#1}}}
+
+\hypersetup{
+  pdftitle={Agent / LLM 算法工程师简历示例},
+  pdfauthor={请替换为姓名},
+  pdfkeywords={Agent, LLM, RAG, SFT, RL, Evaluation}
+}
+
+\ResumeName{姓名}
+
+\begin{document}
+\zihao{-4}\selectfont
+
+\ResumeContacts{
+  1XX-XXXX-XXXX,%
+  \ResumeUrl{mailto:name@example.com}{name@example.com},%
+  \ResumeUrl{https://github.com/yourname}{github.com/yourname},%
+  \textnormal{Agent / LLM 算法工程师}%
+}
+\ResumeTitle
+
+% 第一屏不堆“熟悉/掌握”，先给岗位定位和可核验的稀缺信号。
+\noindent
+\Signal{应届硕士｜Agent 系统、后训练与评测}：主导 X 个从 0 到 1 项目，覆盖 long-horizon harness、
+轨迹数据合成和 rubric eval；核心开源项目获 Xk stars / X 位真实用户，关键结果均可由代码、trace、
+benchmark 或线上数据复核。
+
+\section{核心证据}
+\begin{itemize}
+  \item \textbf{公开影响力}：作为核心维护者持续贡献 X 个月，合入 X 个 PR、完成 X 次 release；项目被 X 个团队或开发者采用。
+  \item \textbf{系统所有权}：负责需求定义、架构取舍、实现与评测闭环，而非只调用模型 API；可现场解释关键代码、失败样本和替代方案。
+  \item \textbf{算法闭环}：围绕任务成功率、有效工具调用率、token 成本与延迟建立基线，完成数据构造、SFT/RL、评测和回归分析。
+\end{itemize}
+
+\section{实习经历}
+\ResumeItem{某头部科技公司｜Agent 平台团队}
+[\textnormal{Agent 算法实习生}]
+[20XX.XX—20XX.XX]
+\begin{itemize}
+  \item \textbf{职责边界}：作为项目 owner，负责长程 Agent 从需求拆解、系统设计到上线评测，服务 X 类复杂任务、日均 X 次调用。
+  \item \textbf{Agent Harness}：将固定工作流升级为 Lead Agent 统一决策、sub-agent 隔离执行的动态架构；设计 X 层 middleware 管线处理上传、沙箱、悬空工具调用、压缩和记忆，使长任务完成率由 X\% 提升至 Y\%。
+  \item \textbf{Context Engineering}：按 write / select / compress / isolate 管理上下文；通过增量摘要与 checkpoint 将平均 token 成本降低 X\%，中断恢复成功率达到 Y\%。
+  \item \textbf{评测与回归}：建设 X 条真实任务集和可回放 trace，按规划、工具效率、错误恢复与结果质量分层评分；版本回归时间从 X 小时缩短至 Y 分钟。
+\end{itemize}
+
+\section{开源与项目经历}
+\ResumeItem{Long-Horizon Agent Harness}
+[\textnormal{核心维护者｜仓库与技术报告链接}]
+[20XX.XX—至今]
+\begin{itemize}
+  \item \textbf{问题与责任}：针对多步骤任务中上下文膨胀、错误累积和恢复困难，主导可插拔 Agent runtime，负责架构、核心模块和 release。
+  \item \textbf{关键机制}：实现动态 skill 加载、sub-agent 调度、沙箱隔离和持久化 checkpoint；skill 仅注入索引并按需加载，单任务上下文占用降低 X\%。
+  \item \textbf{可靠性}：定义 dangling tool call、循环调用和执行超时等 X 类 failure mode，并用 verifier 阻断无效轨迹；长程任务成功率由 X\% 提升至 Y\%。
+  \item \textbf{外部证据}：开源后获得 Xk stars、X 位 contributor 和 X 个下游集成；提供最小复现、benchmark 配置、trace 与失败案例。
+\end{itemize}
+
+\pagebreak
+
+\section{开源与项目经历（续）}
+\ResumeItem{Agent Trajectory Pipeline for SFT / RL}
+[\textnormal{项目 owner｜代码与实验报告链接}]
+[20XX.XX—20XX.XX]
+\begin{itemize}
+  \item \textbf{目标}：解决单一模型轨迹同质化和困难任务重复推理成本高的问题，搭建生成、执行、评测、清洗到导出的闭环流水线。
+  \item \textbf{数据合成}：统一接入 X 类模型与 scaffold，支持 checkpoint 续跑和失败报告回注；累计生成 X 条轨迹，困难任务有效样本占比由 X\% 提升至 Y\%。
+  \item \textbf{Rubric Eval}：将结果评分拆为可自动检查规则与 LLM judge，定位首次错误决策步骤并截断后续级联失败；模型区分度提升 Xpp，人工复核量下降 X\%。
+  \item \textbf{成本与效果}：相对“整题重复推理”基线，单条有效轨迹成本降低 X\%，benchmark 通过率提升 Xpp；报告样本量、基线、统计窗口与消融结果。
+\end{itemize}
+
+\ResumeItem{业务数据分析 Agent}
+[\textnormal{端到端负责人｜Demo 与案例链接}]
+[20XX.XX—20XX.XX]
+\begin{itemize}
+  \item \textbf{业务问题}：面向运营、产品与研发的多源分析任务，负责从需求定义到上线，覆盖数据查询、归因分析和报告生成，日均 X 次调用。
+  \item \textbf{工作流}：通过意图路由和 schema 驱动的 tool registry 编排查询、指标计算与报告生成；对 observation 做摘要与滑动截断，复杂任务完成率由 X\% 提升至 Y\%。
+  \item \textbf{上线结果}：报告生成时间由 X 分钟降至 Y 分钟，人工返工率下降 X\%，X 周留存率达到 Y\%；同时监控错误率、P95 延迟和单任务成本。
+\end{itemize}
+
+\section{研究与公开产出}
+\begin{itemize}
+  \item \textbf{论文 / 技术报告}：围绕 Agent 评测或后训练提出 X 方法；在 X benchmark、X 条样本上相对强基线提升 Xpp，并公开代码、配置与主要消融。
+  \item \textbf{开源贡献}：向 X 个主流项目提交 X 个 PR，其中 X 个涉及核心模块；维护 issue、release note 和迁移文档，证明持续协作而非一次性提交。
+  \item \textbf{技术传播}：发布 X 篇深度文章或 X 场分享，累计 X 次阅读；内容包含可运行示例、失败复盘和适用边界。
+\end{itemize}
+
+\section{教育背景}
+\ResumeItem{某大学｜计算机相关专业}
+[\textnormal{硕士｜排名 / 奖学金仅在有证据时填写}]
+[20XX.XX—20XX.XX]
+
+\section{专业技能}
+\begin{itemize}
+  \item \textbf{Agent / RAG}：工具调用、planning、multi-agent、memory、context engineering、sandbox、trace、eval、verifier。
+  \item \textbf{训练 / 推理}：PyTorch、Transformers、SFT、LoRA、DPO / GRPO、vLLM；能解释数据、目标函数、显存与吞吐取舍。
+  \item \textbf{工程}：Python、Linux、Git、Docker、SQL、服务化与可观测性；只保留能在面试中深入讨论或现场实现的技能。
+\end{itemize}
+
+\end{document}
